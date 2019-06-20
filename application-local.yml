@@ -1,0 +1,84 @@
+server:
+  port: 28081
+  wss-port: 28089
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://120.76.202.91:3306/qianyue?useSSL=false&serverTimezone=CTT&allowMultiQueries=true&allowMultiQueries=true&tinyInt1isBit=false
+#    username: root
+#    password: gitlab123456
+    username: root
+    password: tIGapcx3pGToM
+#    url: jdbc:mysql:///qianyue?useSSL=false&serverTimezone=CTT&allowMultiQueries=true&allowMultiQueries=true&tinyInt1isBit=false
+#    username: root
+#    password: gitlab123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      connection-init-sqls: set names utf8mb4
+  redis:
+    host: 192.168.1.224
+    port: 6379
+    database: 0
+    password:
+  cache:
+    type: redis
+    redis:
+      time-to-live: 360m
+
+logging:
+#  file: ./logs/my.log
+  level:
+    org.springframework.web: debug
+
+url:
+  user-center: http://sign2.jjw.com:28879/user/center
+  uplus-erp: http://sign2.jjw.com:28879/uplus/erp
+
+sms:
+  # 短信接口
+  mobileURL: http://pushapi.t.jjdc.com.cn/api/Sms/SendMessage
+  # 推送接口
+#  pushURL: http://uplus.t.jjdc.com.cn/ERP/Comm/PushMessageForPC
+  pushURL: http://120.76.202.91:28879/uplusmsg/
+  # 定时时间
+  timing:
+    date: 0 0 14 * * ?
+    actionIdStr: 162
+
+call:
+  url: http://callapi.t.jjdc.com.cn/api/CallService/BindMobile
+  downloadURL: http://voicedownload.jjdc.com.cn:8081/api/CallService/DownloadSoundRecording
+  X-AID: 6b98533180824c0986956e705a5c4dc3
+  token: dc5a4d5bac984628b82b42af10255e73
+
+center:
+  # 短信服务秘钥
+  UPLUSAppid: fbfba66bfdb74e6a9cfffcbccb57d594
+  UPLUSKey: a1c282099246560fb9822b7f6a2fc8c5
+  # 推送秘钥 - 测试
+  secretKey: E10ADC3949BA59ABBE56E057F20F883E
+
+#临时文件的位置
+tmp:
+  dir: D:/temp/qianyue/
+
+config:
+  path: D:/temp/qianyue/
+  server:
+    domain: http://192.168.1.224:28001/
+  cont-receive: 0 #表示不发
+  sign-account: 13476842561
+  sign-developerId: 2083285412041720422
+  sign-privateKey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCBhtXXcQ97UArFQaASIG0OOP8oS76NoVBx7/51RhGAlYHKq9DZxRSRHSFK7CX35x5nPZlxEGxfnH15bCbx+OPLPeB2KpSIme4RuWmslzArFLW4X6Fkcd5ePGtxx5ZS6Ui/SAaBb9VL4PE1nfVHAMFMG65+CYGB3H4hRDFmhn5SIUAyzpLvp0KW3IMJJ4vOx2HV7qnTjR2KeeWtICSQl6XVQYk3mTaRJujmmgATHd9bkxHnk0M/2TgO6pAmd69ObZ8q93OyK1ozSB48Z3J0ZfVcAkQ7XssSg53Qs6BHVWjF982mGQbMQKavNBgw+BZWc3rSQ+3sibiH4JIx7FWqgYUFAgMBAAECggEAYf3NWCF78fG7REKCxFPtzX3HZAfx0JqDDr/fRX/OC/aP6/GSnr4f8i0Um+cOTn92m+qZZFVld+wfbTYqPJPsWj2kzCEooDO8TYJ1dRIoad9QH32RzzjqX2bcbobtrio5VCU8br5Zov853TN0ddQXaOnkWAv/A2z5q1c4/HSxqpXSFcfb4yFobmgnXRgrp7NF/xqxtvZ3dNC7kot4ESchPdOUQ3ukqS+X5LdlforxOS/a14RcRzJt0bPeJ5nU6055NMJK58Xs2UunwWbnuo2Mjs5+dVX77nsu+fRoe8c7T8xauX8QCFrOJDN41ERdhaje+Ck9umS0+pxr3b3Kwf0/wQKBgQDLStFWB3Y4Z1/CtlIWJu0NjRRl9IqfMu6ZjeNyj8qJT1VAlC53J194eBR1Bqa63a39qewPiHJjr+COY5sPwM8H0wq2wzMuAnjcDMvlXQipy2KPwlHjCE0f5m2GwS0ZyLNb2x1diM4YA5fywJnxwBtvSRjDOUy/cr7ofC0Hvxw+8QKBgQCjG/Pfm1cHOQVWHSYIn6TEXepIUtoVaExHFMv3utfUDT4q5HbdetOs/CS4cHXNIj8VwxdyhlI3vNeAIomIg5R/4A0/aK8b8iVEm3Rdzb7AVJXI84VWl+hnx4yCSSpNFXwctp10YmBVZOlLr0Kw34ar2ZcxeesiHQd7kfUPzniPVQKBgAaLjB3W86lxOpYMRKxN6IftKOD3dJcXjrMG7HG9y2mMUlRX8P8JF3vLce0qn6eYh4eJNv5xCC3JddNfxZhGPuQjmU61DirHDZkYGGB0FFlTIQM74GMM217RjmkuQwN3gL7OWS2vv+LqCrRYGxy7cKaulcuDRsNLMHZPuStsrb4hAoGAMBnrNpM5/BBNyZJ5B+wEjEBh+ggs9kk2zXONnzYDti5dmgqcHz68s/P75ESOCPvDfOh2vrhsALH5H3mP86lSHs/1ODDoCybC5NOvYoZtbYzES2m9dccAq7JGdpmbFvZyDomwL4VfgW9r+Xzq/vw8W+ukUdvxgrLq5P8rNQkftq0CgYAt3PN4icum6DJE1MsYUCPTAyP7JEWieQZ5gX8kIZaVfnn4ZvXMIUz1R1pUJEjQ0R0UynMYnqAX2ltbZoIasjH1g3LxLtLEFT7MFvHWIFka1LybCxSYER55U8nz0lkLDCavF5BD6PJUc3Sz+DEOmD8PZihwDnIwnqaNSpfemK72nQ==
+  sign-serverHost: https://openapi.bestsign.info/openapi/v2
+
+token:
+  expire: 720  #分钟
+  secretKey: E10ADC3949BA59ABBE56E057F20F883E
+
+audit:
+  # 流程管理员15728|4373|305
+  admin: 15728
